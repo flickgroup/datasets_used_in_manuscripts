@@ -45,5 +45,4 @@ reference is given in each folder's `README.md`.
 
 ## Contact
 
-Johannes Flick, Department of Physics, City College of New York. For questions about a specific
-dataset, please open an issue or contact the corresponding author of the manuscript.
+Johannes Flick, Department of Physics, City College of New York (`jflick@ccny.cuny.edu`).

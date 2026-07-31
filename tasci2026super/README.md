@@ -71,6 +71,14 @@ tasci2026super/
 The QED-FCI reference values in Fig. S1 are small enough to be hard-coded as arrays at the top of
 `plot_fci_final.py` rather than stored in HDF5.
 
+Figures 2, 3, S1, and S2 appear in the manuscript exactly as the scripts emit them. **Figure 1 is
+the one exception:** the published version is the script output with annotations added afterwards
+in a vector editor, namely the cavity/atom-chain schematic with the `x`/`z` axes at the top of
+panel (a), the callout box and arrow linking the inset to the `N = 90` to `100` region, and the
+double arrow with the "Higher-order effects" label in panel (b). That is what `fig_1/fig_1.svg` is
+for. Rerunning `plot_fig1.py` reproduces all the data and axes of Fig. 1, but not those
+annotations.
+
 ## Data files
 
 ### `main-script/pmbd_lam0025.h5`
