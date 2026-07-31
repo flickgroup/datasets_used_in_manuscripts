@@ -71,7 +71,7 @@ ax1.plot(R, dE(pz), color="red")
 ax1.plot(R, dE(px), color="blue")
 ax1.plot(R, dE(py), color="limegreen", dashes=[2, 2])
 
-for lam in ("7e-2", "9e-2", "1e-1"):
+for lam in ("7e-2", "9e-2", "1.1e-1"):
     Rl, _, lx, ly, lz = pmbd(lam)
     ax1.plot(Rl, dE(lz), color="red", alpha=0.3)
     ax1.plot(Rl, dE(lx), color="blue", dashes=[0, 2, 2, 0], alpha=0.3)

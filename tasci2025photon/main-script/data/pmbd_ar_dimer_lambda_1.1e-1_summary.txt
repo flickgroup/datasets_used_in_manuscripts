@@ -1,4 +1,4 @@
-PBE0+PMBD total energy for Ar dimer (Cavity Frequency = 2.0 eV; coupling strength = 0.1 a.u.)
+PBE0+PMBD total energy for Ar dimer (Cavity Frequency = 2.0 eV; coupling strength = 0.11 a.u.)
 Distance Ar-Ar (A)                      Outside                           Pol x                         Pol y                          Pol z               
 
 3.000000000000000000e+00         3.692884559999498606e-03        3.231608208179803654e-03        3.231608222979076572e-03       4.479491511645505852e-03

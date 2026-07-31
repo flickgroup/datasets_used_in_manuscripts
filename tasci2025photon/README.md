@@ -81,7 +81,7 @@ dimer data in `main-script/data/`.
 
 ## Data files
 
-### `main-script/data/pmbd_ar_dimer_lambda_{5e-2,7e-2,9e-2,1e-1}_summary.txt`
+### `main-script/data/pmbd_ar_dimer_lambda_{5e-2,7e-2,9e-2,1.1e-1}_summary.txt`
 
 PBE0+pMBD total energies for the Ar dimer, one file per coupling strength. Two header lines, then
 five columns:
@@ -93,12 +93,14 @@ R (Å)    E_outside    E_pol_x    E_pol_y    E_pol_z
 102 rows, `R` = 3.00 to 8.00 Å in 0.05 Å steps plus a final row at `R` = 25 Å used as the
 reference point.
 
-> **Note on `pmbd_ar_dimer_lambda_1e-1_summary.txt`:** despite its filename and its header line,
-> this file holds the **λ = 0.11 a.u.** calculation, not λ = 0.1. Verified by comparing against
-> the raw output directories, where it matches `04_augccvz_ar_pbe0_0.11` exactly and differs from
-> `04_augccvz_ar_pbe0_0.1`. It is the outermost faded curve in Fig. 1(a), so the published figure
-> shows λ = 0.05, 0.07, 0.09 and 0.11. The file is shipped under its original name to preserve
-> provenance.
+The four coupling strengths are **λ = 0.05, 0.07, 0.09 and 0.11 a.u.**, which are the four curve
+families in Fig. 1(a): λ = 0.05 opaque, the other three faded, with 0.11 outermost.
+
+> The fourth file reached us named `pmbd_ar_dimer_lambda_1e-1_summary.txt`, with a header line to
+> match, but it holds the λ = 0.11 calculation. It is renamed here, and its header corrected, to
+> agree with its contents. Two independent checks: it is bit-for-bit the `λ = 0.11` scan and not
+> the `λ = 0.1` one, and fitting the λ² scaling of the cavity term to the other three files puts
+> it at λ = 0.10995, which is 0.07% from 0.11 and 18% from 0.1.
 
 ### `main-script/data/pmbd_ar_dimer_summary.txt`
 
