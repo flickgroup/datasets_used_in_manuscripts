@@ -188,7 +188,8 @@ def main():
                    legend_loc=legend_locs.get(i, "lower right"))
 
     plt.tight_layout()
-    plt.savefig("benchmark_split_diagnostics.pdf", bbox_inches="tight")
+    for ext in ("pdf", "png"):
+        plt.savefig(f"benchmark_split_diagnostics.{ext}", bbox_inches="tight")
     plt.show()
 
 if __name__ == "__main__":

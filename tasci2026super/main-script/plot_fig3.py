@@ -141,5 +141,6 @@ ax2.set_xlim(left=0); ax2.set_ylim(bottom=0)
 ax2.legend(frameon=False, loc="upper left", fontsize=12)
 ax2.text(0.88, 0.96, "(b)", transform=ax2.transAxes, fontweight="bold", va="top", ha="right")
 
-fig.savefig(OUTDIR / "fig_3_final_ticks.pdf", bbox_inches="tight")
+for ext in ("pdf", "png"):
+    fig.savefig(OUTDIR / f"fig_3_final_ticks.{ext}", bbox_inches="tight")
 print(f"Saved → {OUTDIR}/fig_3_final_ticks.pdf")

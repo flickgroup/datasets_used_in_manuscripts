@@ -164,7 +164,7 @@ for ax, lbl in [(ax1, "a"), (ax2, "b")]:
     ax.text(0.06, 0.95, f"({lbl})", transform=ax.transAxes,
             ha="left", va="top", fontsize=BASE+2, fontweight="bold")
 
-for ext in ("pdf", "svg", "png"):
+for ext in ("pdf", "png"):
     fig.savefig(OUTDIR / f"fig_1.{ext}", bbox_inches="tight")
 plt.close(fig)
 print(f"\nSaved → {OUTDIR}/fig_1.pdf")

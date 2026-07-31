@@ -116,5 +116,6 @@ cbar.set_label(r"$W(\tilde{q}, \tilde{p})$", fontsize=13, labelpad=1)
 
 plt.subplots_adjust(left=0.12, right=0.90, top=0.95, bottom=0.15, wspace=0.4)
 
-fig.savefig(OUTDIR / "fig_2.pdf")
+for ext in ("pdf", "png"):
+    fig.savefig(OUTDIR / f"fig_2.{ext}")
 print(f"Saved → {OUTDIR}/fig_2.pdf")

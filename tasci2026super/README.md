@@ -54,7 +54,7 @@ tasci2026super/
     ├── plot_Ar_fit.py
     ├── He_dist4_lam_0.025_results_4.h5
     ├── Ar_scaling_fit.h5
-    ├── benchmark_split_diagnostics.pdf   (figure output)
+    ├── benchmark_split_diagnostics.pdf / .png (figure output)
     └── Ar_scaling_publication.pdf / .png (figure output)
 ```
 
@@ -62,10 +62,10 @@ tasci2026super/
 
 | Script | Figure | Reads | Writes |
 | --- | --- | --- | --- |
-| `main-script/plot_fig1.py` | Fig. 1 (electron-photon xc energy and photon number vs `N`) | `pmbd_lam0025.h5`, `ar_chain_..._vv10_....h5` | `fig_1/fig_1.{pdf,svg,png}` |
-| `main-script/plot_fig2.py` | Fig. 2 (quadrature uncertainties, squeezing parameter, Wigner insets) | `pmbd_lam0025.h5` | `fig_2/fig_2.pdf` |
-| `main-script/plot_fig3.py` | Fig. 3 (Mandel `Q`, photon-number variance, von Neumann entropy) | `pmbd_lam0025.h5`, `ar_chain_..._vv10_....h5` | `fig_3/fig_3_final_ticks.pdf` |
-| `SI/plot_fci_final.py` | Fig. S1 (pMBD vs QED-FCI on He chains) | `He_dist4_lam_0.025_results_4.h5` | `benchmark_split_diagnostics.pdf` |
+| `main-script/plot_fig1.py` | Fig. 1 (electron-photon xc energy and photon number vs `N`) | `pmbd_lam0025.h5`, `ar_chain_..._vv10_....h5` | `fig_1/fig_1.{pdf,png}` |
+| `main-script/plot_fig2.py` | Fig. 2 (quadrature uncertainties, squeezing parameter, Wigner insets) | `pmbd_lam0025.h5` | `fig_2/fig_2.{pdf,png}` |
+| `main-script/plot_fig3.py` | Fig. 3 (Mandel `Q`, photon-number variance, von Neumann entropy) | `pmbd_lam0025.h5`, `ar_chain_..._vv10_....h5` | `fig_3/fig_3_final_ticks.{pdf,png}` |
+| `SI/plot_fci_final.py` | Fig. S1 (pMBD vs QED-FCI on He chains) | `He_dist4_lam_0.025_results_4.h5` | `benchmark_split_diagnostics.{pdf,png}` |
 | `SI/plot_Ar_fit.py` | Fig. S2 (Ar chain scaling to `N = 1000`) | `Ar_scaling_fit.h5` | `Ar_scaling_publication.{pdf,png}` |
 
 The QED-FCI reference values in Fig. S1 are small enough to be hard-coded as arrays at the top of
@@ -152,12 +152,12 @@ current working directory, so run them from inside their own folder:
 
 ```bash
 cd main-script
-python plot_fig1.py     # -> fig_1/fig_1.pdf, .svg, .png
-python plot_fig2.py     # -> fig_2/fig_2.pdf
-python plot_fig3.py     # -> fig_3/fig_3_final_ticks.pdf
+python plot_fig1.py     # -> fig_1/fig_1.pdf, .png
+python plot_fig2.py     # -> fig_2/fig_2.pdf, .png
+python plot_fig3.py     # -> fig_3/fig_3_final_ticks.pdf, .png
 
 cd ../SI
-python plot_fci_final.py   # -> benchmark_split_diagnostics.pdf
+python plot_fci_final.py   # -> benchmark_split_diagnostics.pdf, .png
 python plot_Ar_fit.py      # -> Ar_scaling_publication.pdf, .png
 ```
 
