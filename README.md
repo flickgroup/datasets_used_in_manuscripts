@@ -11,7 +11,7 @@ repository with a single script run, without access to the original compute clus
 
 | Folder | Manuscript | Systems / methods |
 | --- | --- | --- |
-| [`tasci2026super`](tasci2026super) | Tasci, Hassan, Orlov-Sullivan, Cunha, Flick, *Super-Poissonian Squeezed Light in the Ground State of Strongly Coupled Light-matter Systems* (2026) | Ar and He chains in an optical cavity; QEDFT with the photon many-body dispersion (pMBD) functional, photon-GA, QED-FCI |
+| [`tasci2026super`](tasci2026super) | Tasci, Hassan, Orlov-Sullivan, Cunha, Flick, *Super-Poissonian Squeezed Light in the Ground State of Strongly Coupled Light-matter Systems* ([arXiv:2512.18242](https://arxiv.org/abs/2512.18242)) | Ar and He chains in an optical cavity; QEDFT with the photon many-body dispersion (pMBD) functional, photon-GA, QED-FCI |
 
 ## Layout convention
 
