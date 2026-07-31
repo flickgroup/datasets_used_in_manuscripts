@@ -48,14 +48,14 @@ tasci2026super/
 │   ├── pmbd_lam0025.h5
 │   ├── ar_chain_lambda_0025_vv10_R4_N100_GAUGE_VG.h5
 │   ├── lam_0.025_rpa_len_N100_R4_z_alpha_dft_free.h5
-│   ├── fig_1/  fig_2/  fig_3/
+│   ├── fig_1/  fig_2/  fig_3/     (figure output)
 └── SI/                    Figures S1-S2 of the Supplemental Material
     ├── plot_fci_final.py
     ├── plot_Ar_fit.py
     ├── He_dist4_lam_0.025_results_4.h5
     ├── Ar_scaling_fit.h5
-    ├── benchmark_split_diagnostics.pdf
-    └── Ar_scaling_publication.pdf / .png
+    ├── benchmark_split_diagnostics.pdf   (figure output)
+    └── Ar_scaling_publication.pdf / .png (figure output)
 ```
 
 ## Scripts and the figures they produce
@@ -162,5 +162,5 @@ python plot_Ar_fit.py      # -> Ar_scaling_publication.pdf, .png
 ```
 
 The published figures use the STIX / Times New Roman serif fonts. If those are not installed,
-matplotlib falls back to DejaVu Serif and the text metrics will differ slightly from the versions
-committed here; the data curves are unaffected.
+matplotlib falls back to DejaVu Serif and the text metrics will differ slightly from the published
+version; the data curves are unaffected.

@@ -1,0 +1,19 @@
+# Generated figure output. These are produced by the plot scripts in each
+# dataset folder and are deliberately not tracked: the data and the scripts are
+# the record, the figures are derived. Regenerate with, e.g.
+#     cd tasci2026super/main-script && python plot_fig1.py
+
+tasci2025photon/main-script/fig_1/
+tasci2025photon/main-script/fig_2/
+
+tasci2026super/main-script/fig_1/
+tasci2026super/main-script/fig_2/
+tasci2026super/main-script/fig_3/
+tasci2026super/SI/Ar_scaling_publication.pdf
+tasci2026super/SI/Ar_scaling_publication.png
+tasci2026super/SI/benchmark_split_diagnostics.pdf
+
+# macOS / editor cruft
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/

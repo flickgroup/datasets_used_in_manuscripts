@@ -11,6 +11,7 @@ repository with a single script run, without access to the original compute clus
 
 | Folder | Manuscript | Systems / methods |
 | --- | --- | --- |
+| [`tasci2025photon`](tasci2025photon) | Tasci, Cunha, Flick, *Photon Many-Body Dispersion: Exchange-Correlation Functional for Strongly Coupled Light-Matter Systems*, [Phys. Rev. Lett. **134**, 073002 (2025)](https://doi.org/10.1103/PhysRevLett.134.073002) ([arXiv:2404.04765](https://arxiv.org/abs/2404.04765)) | Ar dimer, benzene dimer, graphene bilayer, benzene-Ar, water dimer in an optical cavity; QEDFT with pMBD, MBD+GA, QED-CCSD-2 |
 | [`tasci2026super`](tasci2026super) | Tasci, Hassan, Orlov-Sullivan, Cunha, Flick, *Super-Poissonian Squeezed Light in the Ground State of Strongly Coupled Light-matter Systems* ([arXiv:2512.18242](https://arxiv.org/abs/2512.18242)) | Ar and He chains in an optical cavity; QEDFT with the photon many-body dispersion (pMBD) functional, photon-GA, QED-FCI |
 
 ## Layout convention
