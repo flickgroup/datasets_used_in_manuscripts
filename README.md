@@ -21,8 +21,10 @@ One folder per manuscript, named `<first-author><year><keyword>`, all lowercase,
 
 * a `README.md` describing the manuscript, the physical setup, and every file in the folder,
 * subfolders mirroring the manuscript structure (`main-script/`, `SI/`, ...),
-* the raw data (HDF5 preferred) next to the script that consumes it,
-* the generated figures, so a reader can check that a rerun reproduces the published version.
+* the raw data (HDF5 preferred) next to the script that consumes it.
+
+The figures themselves are not stored here. The data and the scripts are the record; run the
+scripts to produce the figures.
 
 Data are stored in atomic units unless a folder README states otherwise.
 
@@ -37,7 +39,8 @@ cd datasets_used_in_manuscripts/tasci2026super/main-script
 python plot_fig1.py
 ```
 
-The scripts need Python 3 with `numpy`, `h5py`, and `matplotlib`.
+The scripts need Python 3 with `numpy` and `matplotlib`, plus `h5py` for the datasets stored as
+HDF5.
 
 ## Citing
 
