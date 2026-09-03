@@ -1,0 +1,24 @@
+ENCUT = 520
+NSW = 1  # does this need to be 1 for DFPT dynmat?
+ISIF = 2
+ISPIN = 1
+LASPH = True
+LREAL = False
+NELM = 100
+PREC = Accurate
+LORBIT = 11
+
+NBANDS = 64
+EDIFF = 1e-08
+ISMEAR = 0
+SIGMA = 0.01
+
+ALGO = All
+LWAVE = False
+LCHARG = False
+LEPSILON = True
+LPEAD = True
+IBRION = 8
+
+NCORE = 1
+KPAR = 2

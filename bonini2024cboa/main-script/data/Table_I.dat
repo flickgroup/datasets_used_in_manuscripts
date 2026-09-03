@@ -1,0 +1,8 @@
+# Table I  -- Selected matter properties (reproduced).
+# Polarizability chi_11 in Bohr^3 (a0^3); for 2D crystals it is per u.c.
+# |Z*_res| in e/sqrt(amu).  omega_res in meV.
+# Columns: System  omega_res(meV)  chi_axis(a0^3)  chi_00(a0^3)  |Z*_res|(e/sqrt(amu))  Degenerate
+CO2           311.846     26.702     13.295     0.7477    False
+Fe(CO)5       251.989    103.761    103.761     0.5988    False
+h-BN          165.199     37.092     37.092     1.0997     True
+HfS2           17.531    315.986    315.986     0.9790     True

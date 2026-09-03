@@ -1,0 +1,5 @@
+# Pseudopotentials used in this run, from the TITEL lines of
+# the POTCAR. The POTCAR itself is licensed VASP material and
+# is not redistributed; see the folder README.
+TITEL  = PAW_PBE C 08Apr2002
+TITEL  = PAW_PBE O 08Apr2002
