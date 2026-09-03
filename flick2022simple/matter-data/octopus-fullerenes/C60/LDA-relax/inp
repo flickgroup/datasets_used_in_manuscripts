@@ -1,0 +1,27 @@
+# -*- coding: utf-8 mode: shell-script -*-
+
+ExperimentalFeatures = yes
+
+FromScratch = yes
+CalculationMode = go
+GOMethod = fire
+GOMaxIter = 10000
+GoFireMass = 0.01
+GOTolerance = 1e-4
+
+ConvForce = 1e-7
+
+XCFunctional = lda_x + lda_c_pz_mod
+
+BoxShape = minimum
+Radius = 6*angstrom
+Spacing = 0.15*angstrom
+
+XYZCoordinates                    = "geometry.xyz"
+#UnitsXYZFiles = bohr_units 
+
+UnitsOutput = atomic
+#Output = density + potential + wfs
+OutputDuringSCF = no
+#OutputFormat = integrate_xy + integrate_xz + integrate_yz + axis_x + axis_y + axis_z + plane_z + plane_y + plane_x + xyz + cube + matlab
+

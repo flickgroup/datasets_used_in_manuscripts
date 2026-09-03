@@ -1,0 +1,53 @@
+# -*- coding: utf-8 mode: shell-script -*-
+
+ExperimentalFeatures = yes
+
+FromScratch = no
+CalculationMode = gs
+
+MaximumIter = 1000
+ConvEnergy = 1e-8
+
+EigenSolverTolerance = 1e-8
+
+XCFunctional = oep_x
+OEPLevel = 5 #level 3 is the KLI, level 5 is the OEP
+
+Photons = no
+PhotonsOEP = yes
+%Photonmodes
+1.6 | 0.1 | 1 | 0 | 0 
+%
+
+MixingScheme = linear
+OEPMixingScheme = 2
+PseudopotentialSet = pseudodojo_lda
+
+LinearSolver = cg      
+CGEnergyChangeThreshold = 1e-7
+LRTolFinalTol = 1e-7
+LRConvAbsDens = 1e-7
+LRMaximumIter = 50
+
+BoxShape = minimum
+Radius = 6*angstrom
+Spacing = 0.15*angstrom
+
+%RestartOptions
+  restart_gs | "restart" | restart_states+restart_rho+restart_vhxc
+%
+
+XYZCoordinates                    = "geometry.xyz"
+UnitsXYZFiles = bohr_units 
+FilterPotentials = filter_none
+
+
+UnitsOutput = atomic
+Output = density #+ potential + wfs
+OutputDuringSCF = no
+OutputFormat = integrate_xy + integrate_xz + integrate_yz + axis_x + axis_y + axis_z + plane_z + plane_y + plane_x + xyz + cube + matlab
+
+PhotonDens = no
+PhotonDensGradCorr = no
+PhotonDensR2x = no
+PhotonSkipVxc = no

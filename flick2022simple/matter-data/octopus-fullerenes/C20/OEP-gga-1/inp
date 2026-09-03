@@ -1,0 +1,32 @@
+# -*- coding: utf-8 mode: shell-script -*-
+
+ExperimentalFeatures = yes
+
+FromScratch = no
+CalculationMode = gs
+
+MaximumIter = 1000
+ConvEnergy = 1e-8
+
+XCFunctional = lda_x + lda_c_pz_mod
+
+BoxShape = minimum
+Radius = 6*angstrom
+Spacing = 0.15*angstrom
+
+XYZCoordinates                    = "geometry.xyz"
+#UnitsXYZFiles = bohr_units 
+
+UnitsOutput = atomic
+#Output = density + potential + wfs
+OutputDuringSCF = no
+#OutputFormat = integrate_xy + integrate_xz + integrate_yz + axis_x + axis_y + axis_z + plane_z + plane_y + plane_x + xyz + cube + matlab
+
+Photons = yes
+PhotonmodesFilename = "photon_modes_400000_0.11024797619388696_0.03674932539796232.dat"
+
+
+PhotonDens = yes
+PhotonDensGradCorr = yes
+PhotonDensR2x = no
+PhotonSkipVxc = yes

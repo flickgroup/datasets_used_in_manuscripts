@@ -1,0 +1,86 @@
+
+******************************** Grid ********************************
+Simulation Box:
+  Type = minimum
+  Radius  [b] =  11.338
+  Octopus will run in 3 dimension(s).
+  Octopus will treat the system as periodic in 0 dimension(s).
+Main mesh:
+  Spacing [b] = ( 0.283, 0.283, 0.283)    volume/point [b^3] =      0.02278
+  # inner mesh =     321639
+  # total mesh =     406767
+  Grid Cutoff [H] =    61.417127    Grid Cutoff [Ry] =   122.834253
+**********************************************************************
+
+
+***************************** Symmetries *****************************
+Symmetry elements : (Cinf) (sigma)
+Symmetry group    : Cinfv
+**********************************************************************
+
+
+**************************** Theory Level ****************************
+Input: [TheoryLevel = dft]
+
+Exchange-correlation:
+  Exchange
+    Exact exchange
+
+Exact exchange mixing =  1.00000
+
+Input: [SICCorrection = sic_none]
+Input: [OEPLevel = oep_full]
+**********************************************************************
+
+SCF converged in  172 iterations
+
+Some of the states are not fully converged!
+Eigenvalues [H]
+ #st  Spin   Eigenvalue      Occupation
+   1   --    -2.018376       2.000000
+   2   --    -0.287502       2.000000
+
+Energy [H]:
+      Total       =        -7.66722563
+      Free        =        -7.66722563
+      -----------
+      Ion-ion     =         0.98742352
+      Eigenvalues =        -4.61175646
+      Hartree     =         5.28418682
+      Int[n*v_xc] =        -3.19567053
+      Exchange    =        -1.97066257
+      Correlation =         0.00000000
+      vanderWaals =         0.00000000
+      Delta XC    =         0.00000000
+      Entropy     =         0.00000000
+      -TS         =         0.00000000
+      Photon ex.  =         0.01628618
+      Photon+Ion  =         0.00000000
+      Kinetic     =         5.76690704
+      External    =       -17.75136657
+      Non-local   =        -4.67555838
+      Int[n*v_E]  =         0.00000000
+
+Dipole:                 [b]          [Debye]
+      <x> =   -3.10828E-10     -7.90046E-10
+      <y> =    5.42102E-10      1.37789E-09
+      <z> =    2.40873E+00      6.12237E+00
+ 
+Convergence:
+      abs_dens =  8.94727559E-07 ( 0.00000000E+00)
+      rel_dens =  2.23681890E-07 ( 1.00000000E-06)
+      abs_ev =  7.51602709E-08 ( 0.00000000E+00) [H]
+      rel_ev =  1.62975369E-08 ( 0.00000000E+00)
+
+Photon observables:
+      Photon number =  4.36819692E-03
+      Photon ex. =  1.62861828E-02
+
+Forces on the ions [H/b]
+ Ion                        x              y              z
+   1        Li  -0.312585E-11   0.613963E-11   0.235303E-02
+   2         H   0.437502E-11   0.546777E-13   0.173478E-02
+ ----------------------------------------------------------
+ Max abs force   0.437502E-11   0.613963E-11   0.235303E-02
+   Total force   0.124916E-11   0.619431E-11   0.408781E-02
+  Total torque  -0.924368E-11  -0.113946E-10   0.000000E+00
