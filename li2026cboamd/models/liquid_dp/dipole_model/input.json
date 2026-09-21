@@ -1,0 +1,67 @@
+{
+    "model": {
+        "type_map": [
+            "C",
+            "O"
+        ],
+        "descriptor": {
+            "type": "se_a",
+            "sel": "auto",
+            "rcut_smth": 0.5,
+            "rcut": 6.0,
+            "neuron": [
+                25,
+                50,
+                100
+            ],
+            "resnet_dt": false,
+            "axis_neuron": 12,
+            "seed": 2234211268
+        },
+        "fitting_net": {
+            "type": "dipole",
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 2550445999
+        }
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.001,
+        "stop_lr": 1e-08,
+        "decay_steps": 5000
+    },
+    "loss": {
+        "type": "tensor",
+        "pref": 0,
+        "pref_atomic": 1000
+    },
+    "training": {
+        "_set_prefix": "set",
+        "stop_batch": 2000000,
+        "_batch_size": 1,
+        "disp_file": "lcurve.out",
+        "disp_freq": 100,
+        "numb_test": 4,
+        "save_freq": 10000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "_comment": "that's all",
+        "training_data": {
+            "systems": [
+                "../train_data/deepmd_data_aug_pbe0_after210_clean/atomic_dipole"
+            ],
+            "batch_size": [
+                1
+            ]
+        },
+        "seed": 58980109
+    }
+}

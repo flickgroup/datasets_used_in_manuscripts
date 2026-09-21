@@ -1,0 +1,1 @@
+polarizability: RMSE = 0.00068780106 Angstrom^3; MAE = 0.00030410209 Angstrom^3

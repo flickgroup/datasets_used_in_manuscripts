@@ -1,0 +1,9 @@
+{
+  "atomic_dipole": {
+    "unit": "Angstrom",
+    "detail_file": "test_out.out",
+    "n_components": 576,
+    "rmse": 0.004123199389619147,
+    "mae": 0.0027019734439592243
+  }
+}

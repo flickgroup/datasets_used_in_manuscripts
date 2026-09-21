@@ -1,0 +1,57 @@
+# In-cavity liquid CO2 IR ensemble member.
+# lambda = 0.04, polarizability enabled, final clean PBE0 models.
+# omega = 0.0188345 a.u. = 0.0109691*sqrt(1+lambda^2*chi_xx), chi_xx=1217.66 a.u. (ensemble-avg box Pol_xx);
+# omega retuned so the polar screening 1/sqrt(1+lambda^2 chi) leaves the EFFECTIVE cavity frequency on the 0.0109691 a.u. resonance.
+# Paths below are relative to this repository and resolve when LAMMPS runs
+# in THIS directory (lmp -in in.lmp). MODELS and CONFIG are LAMMPS index
+# variables, so both can be overridden on the command line; the production
+# runs executed inside per-trajectory subdirectories (traj_00 .. traj_39),
+# which needs one extra ../ on each:
+#
+#   mkdir traj_00 && cd traj_00
+#   lmp -in ../in.lmp -var CONFIG ../../../configs/conf_00.lmp \
+#       -var MODELS ../../../../../models/liquid_dp
+#
+# The production runs loaded `dp compress`-ed models, which are not shipped
+# because `dp compress -i frozen_model.pb -o frozen_model_compressed.pb`
+# regenerates them byte for byte from what is here. The plain models named
+# below give identical dynamics at lower speed.
+variable        MODELS index "../../../../models/liquid_dp"
+variable        CONFIG index "../../configs/conf_00.lmp"
+
+units           metal
+boundary        p p p
+atom_style      atomic
+timestep        0.0005
+
+read_data       ${CONFIG}
+
+mass            1 12.00000
+mass            2 16.00000
+
+variable        pot_model string "${MODELS}/ener_model/frozen_model.pb"
+variable        dipole_model string "${MODELS}/dipole_model/frozen_model.pb"
+variable        polar_model string "${MODELS}/polar_model/frozen_model.pb"
+variable        NSTEPS equal 40000
+variable        LAMBDA equal 0.04
+variable        OMEGA equal 0.0188345
+
+pair_style      deepmd ${pot_model}
+pair_coeff      * *
+neigh_modify    every 1 delay 0 check yes
+
+reset_timestep  0
+
+fix             nve all nve
+fix             cav all cboamd dipole ${dipole_model} polar ${polar_model} dipole_unit eAngstrom polarizability_unit Angstrom3 photons true nphoton 1 omega ${OMEGA} lambda ${LAMBDA} lambda_vector 1 0 0
+
+thermo          1000
+thermo_style    custom step temp pe ke etotal press f_cav[*]
+thermo_modify   flush yes format float %.12e
+
+dump            traj all custom 20 traj.dump id type x y z vx vy vz
+dump_modify     traj sort id
+
+run             ${NSTEPS}
+
+write_restart   cavity_final.restart

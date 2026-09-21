@@ -1,0 +1,26 @@
+{
+    "xyz_file": "../../co2-disp.xyz",
+    "driver": "nep",
+    "nep_pot": "../../../../models/single_molecule_nep/ener_model_nep2/nep.txt",
+    "nep_dip": "../../../../models/single_molecule_nep/dipole_model_nep/nep.txt",
+    "nep_pol": "../../../../models/single_molecule_nep/polarizability_model_nep/nep.txt",
+    "steps": 200000,
+    "timestep": 0.5,
+    "photons": true,
+    "nphoton": 1,
+    "omega_photon": [
+        0.01112667
+    ],
+    "lambda_photon": [
+        0.3
+    ],
+    "lambda_vector": [
+        [
+            1,
+            0,
+            0
+        ]
+    ],
+    "polar": false,
+    "update_polar": false
+}

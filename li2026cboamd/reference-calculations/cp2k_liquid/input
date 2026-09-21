@@ -1,0 +1,144 @@
+@SET PREP 0
+
+@SET SCF_GUESS RESTART
+@SET SCREEN_ON_INITIAL_P TRUE
+
+@IF ${PREP}
+  @SET SCF_GUESS ATOMIC
+  @SET SCREEN_ON_INITIAL_P FALSE
+@ENDIF
+
+&GLOBAL
+  PROJECT co2
+  PREFERRED_FFT_LIBRARY FFTW
+  FFTW_PLAN_TYPE MEASURE
+  PRINT_LEVEL MEDIUM
+&END GLOBAL
+
+&FORCE_EVAL
+  &DFT
+    BASIS_SET_FILE_NAME basis/GTH_BASIS_SETS
+    BASIS_SET_FILE_NAME basis/BASIS_ADMM
+    POTENTIAL_FILE_NAME basis/POTENTIAL
+    &MGRID
+      CUTOFF 600
+      REL_CUTOFF 60
+    &END MGRID
+    ! --- ADMM: makes exact-exchange affordable for a 192-atom periodic cell ---
+    &AUXILIARY_DENSITY_MATRIX_METHOD
+      METHOD BASIS_PROJECTION
+      ADMM_PURIFICATION_METHOD NONE     ! OT-compatible (no MO diagonalization)
+    &END AUXILIARY_DENSITY_MATRIX_METHOD
+    &SCF
+      SCF_GUESS ${SCF_GUESS}
+      MAX_SCF 20
+      EPS_SCF 1.0E-7
+      &OT
+        MINIMIZER DIIS
+        PRECONDITIONER FULL_ALL
+      &END OT
+      &OUTER_SCF
+        MAX_SCF 50
+        EPS_SCF 1.0E-7
+      &END OUTER_SCF
+      &PRINT
+        &RESTART
+          ADD_LAST NUMERIC
+          &EACH
+            QS_SCF 0
+          &END EACH
+        &END RESTART
+      &END PRINT
+    &END SCF
+    &QS
+      EPS_DEFAULT 1.0E-12
+      EPS_PGF_ORB 1.0E-14
+      EXTRAPOLATION_ORDER 5
+    &END QS
+    &XC                       ! PBE0 (25% exact exchange) + D3
+    2ND_DERIV_ANALYTICAL .FALSE.
+      &XC_FUNCTIONAL
+        &PBE
+          PARAMETRIZATION ORIG
+          SCALE_X 0.75        ! 1 - FRACTION
+          SCALE_C 1.0
+        &END PBE
+      &END XC_FUNCTIONAL
+      &HF
+        FRACTION 0.25
+        &SCREENING
+          EPS_SCHWARZ 1.0E-6
+          SCREEN_ON_INITIAL_P ${SCREEN_ON_INITIAL_P}
+        &END SCREENING
+        &INTERACTION_POTENTIAL
+          POTENTIAL_TYPE TRUNCATED      ! required for periodic HFX
+          CUTOFF_RADIUS 6.0             ! must be < L/2 = 8.24 Ang
+          T_C_G_DATA basis/t_c_g.dat
+        &END INTERACTION_POTENTIAL
+        &MEMORY
+          MAX_MEMORY 2000               ! MB per MPI rank; raise if RAM allows
+          EPS_STORAGE_SCALING 0.1
+        &END MEMORY
+      &END HF
+      &VDW_POTENTIAL
+         POTENTIAL_TYPE PAIR_POTENTIAL
+         &PAIR_POTENTIAL
+            TYPE DFTD3
+            R_CUTOFF 15
+            LONG_RANGE_CORRECTION TRUE
+            REFERENCE_FUNCTIONAL PBE0
+            PARAMETER_FILE_NAME basis/dftd3.dat
+         &END
+      &END
+      &XC_GRID
+        XC_DERIV SPLINE2
+      &END
+    &END XC
+    &LOCALIZE
+      METHOD JACOBI
+      EPS_LOCALIZATION 1.0E-6
+      &PRINT
+        &WANNIER_CENTERS LOW
+        &END
+      &END
+    &END
+  &END DFT
+  &SUBSYS
+    &TOPOLOGY
+      COORD_FILE_NAME co2.xyz
+      COORD_FILE_FORMAT XYZ
+      CONN_FILE_FORMAT GENERATE
+    &END TOPOLOGY
+    &CELL
+      ABC 16.7410 16.7410 16.7410
+      PERIODIC XYZ
+    &END CELL
+    &KIND C
+      BASIS_SET aug-TZV2P-GTH-q4
+      BASIS_SET AUX_FIT cpFIT3
+      POTENTIAL GTH-PBE-q4
+    &END KIND
+    &KIND O
+      BASIS_SET aug-TZV2P-GTH-q6
+      BASIS_SET AUX_FIT cpFIT3
+      POTENTIAL GTH-PBE-q6
+    &END KIND
+  &END SUBSYS
+STRESS_TENSOR ANALYTICAL
+  &PRINT
+    &FORCES ON
+    &END FORCES
+    &STRESS_TENSOR ON
+    &END
+  &END PRINT
+&PROPERTIES
+  &LINRES
+    ENERGY_GAP 0.4            ! ~ PBE0 HOMO-LUMO gap (Ha); tune to printed gap
+    MAX_ITER 200
+    PRECONDITIONER FULL_ALL
+    EPS 1.0E-8
+    &POLAR T
+    &END POLAR
+  &END LINRES
+&END PROPERTIES
+&END FORCE_EVAL

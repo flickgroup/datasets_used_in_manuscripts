@@ -1,0 +1,30 @@
+{
+  "source_dataset": "deepmd_data_aug_pbe0",
+  "true_dipole_source_dataset": "deepmd_data_aug_pbe0_true_dipole",
+  "selection_rule": "original frame id >= 210 and original frame id != 1665",
+  "n_source_frames": 2183,
+  "n_selected_frames": 1972,
+  "n_excluded_frames": 211,
+  "first_selected_frame_id": 210,
+  "last_selected_frame_id": 2264,
+  "excluded_special_frames": {
+    "1665": "isolated close intermolecular contact/high-force outlier; min intermolecular distance 1.5566 A, max force 15.07 eV/A"
+  },
+  "bookkeeping_files": {
+    "selected_source_indices": "selected_source_indices.txt: zero-based rows into source dataset arrays",
+    "selected_frame_ids": "frame_ids.txt: original CP2K frame ids retained",
+    "selected_table": "selected_frames.tsv: clean index, source row, original frame id, source path",
+    "excluded_table": "excluded_frames.tsv: excluded source row, original frame id, reason"
+  },
+  "labels": {
+    "energy_force_polarizability": "from deepmd_data_aug_pbe0",
+    "atomic_dipole_dipole": "true-dipole labels from deepmd_data_aug_pbe0_true_dipole"
+  },
+  "units": {
+    "energy": "eV",
+    "force": "eV/Angstrom",
+    "polarizability": "Angstrom^3",
+    "atomic_dipole": "e Angstrom",
+    "dipole": "e Angstrom"
+  }
+}

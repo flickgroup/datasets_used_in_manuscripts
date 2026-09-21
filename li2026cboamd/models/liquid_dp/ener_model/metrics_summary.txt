@@ -1,0 +1,2 @@
+energy: RMSE = 0.26906551 meV/atom; MAE = 0.21823227 meV/atom
+force: RMSE = 28.243164 meV/Angstrom; MAE = 23.017786 meV/Angstrom
