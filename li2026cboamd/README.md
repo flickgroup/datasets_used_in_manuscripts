@@ -6,6 +6,7 @@ Data, trained models and plotting scripts for:
 > Framework for Vibrational Strong Coupling* (2026).
 
 Preprint: [arXiv:2609.22022](https://arxiv.org/abs/2609.22022).
+Code: [github.com/flickgroup/cboamd](https://github.com/flickgroup/cboamd), v1.0.0 at `89bc6dd`.
 
 ## Layout
 
